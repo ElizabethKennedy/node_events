@@ -34,7 +34,7 @@ const server = createServer((req, res) => { //Instantiate a new server instance 
         chunks.push(chunk); // and pass in a callback function that pushes each ‘chunk’ into an array named ‘chunks’
     });
 
-    req.on("end", () => { //Listen for the request ReadStream ‘end’ event
+    req.on("end", () => { //Listen for request ReadStream ‘end’ event
         if (url === "/newsletter_signup" && method === "POST") { // check the request url and method, and if they are “POST” and “/newsletter_signup”,
             const body = JSON.parse(Buffer.concat(chunks).toString()); // decode the chunks array with Buffer.concat().toString(), and use JSON.parse() on the result to access the request body values
 
